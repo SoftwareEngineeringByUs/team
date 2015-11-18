@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--指定字符的meta标签必须是head的第一个直接子元素-->
+	<meta charset="utf-8">
+	<!--启用IE Edge模式-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+	<title>社团通</title>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+	    h1 {
+	    	float: left;
+	    	width: 200px;
+	    }
+	    nav {
+	    	height: 80px;
+	    }
+		.nav {
+			display: inline-block;
+			padding-left: 0;
+		}
+		.nav li {
+			list-style-type: none;
+			display: inline-block;
+			width: 100px;
+			line-height: 30px;
+		}
+		.nav a {
+			text-decoration: none;
+			color: #7FFF00;
+			font-family: SimSun Serif sans-serif;
+			font-size: 20px;
+		}
+		.right-nav {
+			width: 35%;
+			float:right;
+			margin-top:15px;
+		}
+		#search {
+			box-sizing: border-box;
+			width: 78%;
+			display: inline-block;
+			background: none;
+		}
+		.search-input {
+			box-sizing: border-box;
+			width: 80%;
+			height: 35px;
+			border: 2px solid #e6e6e6;
+			outline: none;
+			border-radius: 30px;
+			background: none;
+			padding: 2px;
+			padding-right: 35px;
+			overflow: hidden;
+		}
+		.search-input:focus{
+			border: 2px solid #d6e0e1;
+			border-radius: 30px;
+		}
+		.search-btn {
+			box-sizing: border-box;
+			width: 30px;
+			height:30px;
+			position: relative;
+			left: -40px;
+			cursor: pointer;
+			border: none;
+			background-image: url("img/search.png"); 
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		@media screen and (-webkit-min-device-pixel-ratio:0){
+			.search-btn {
+				box-sizing: border-box;
+				width: 30px;
+				height:30px;
+				position: relative;
+				left: -40px;
+				top: 10px;
+				cursor: pointer;
+				border: none;
+				background-image: url("img/search.png"); 
+				background-repeat: no-repeat;
+				background-position: center;
+			} 
+		} 
+		.log {
+			box-sizing: border-box;
+			display: inline-block;
+			width: 19%;
+			font-size: 14px;
+		}
+		.log a {
+			text-decoration: none;
+			color: #000;
+		}
+		.web-content {
+			position: relative;
+			top: -40px;
+			border: 2px solid #e6e6e6;
+			padding: 40px 10px;
+		}
+		.banner img {
+			width: 100%;
+			height: 350px;
+		}
+		.notes {
+			width: 100%;
+			height: 500px;
+		}
+		.news {
+			width: 25%;
+			box-sizing: border-box;
+			float: left;
+		}
+		.title {
+			margin-top:20px;
+			padding-bottom: 10px;
+			font-size: 21px;
+			font-weight: bold;
+			border-bottom:3px solid #70DBDB;
+		}
+		.rotate {
+			width: 49%;
+			height: 300px;
+			float: left;
+			padding: 0 10px;
+		    box-sizing: border-box;
+		}
+		.rotate img {
+			width: 100%;
+			height: 300px;
+		}
+		.activity {
+			width: 25%;
+			box-sizing: border-box;
+			float:left;
+		}
+	    .discrib h3 {
+	    	border-left: 5px solid #70DBDB;
+	    }
+	    .org-logo {
+	    	width:180px;
+	    	height:180px;
+	    	border-radius: 50%;
+	    	cursor: pointer;
+	    }
+	    .org-img {
+	    	box-sizing: border-box;
+	    	width: 25%;
+	    	height:210px;
+	    	align: center;
+	    	display: inline-block;
+	    	overflow: hidden;
+	    }
+	</style>
+</head>
+<body>
+	<nav class="web-size">
+		<h1>logo</h1>
+		<ul class="nav">
+			<li><a href="#" target="_blank">社团广场</a></li>
+			<li><a href="#" target="_blank">最近活动</a></li>
+			<li><a href="#" target="_blank">实时新闻</a></li>
+			<li><a href="#" target="_blank">我的日历</a></li>
+		</ul>
+		<div class="right-nav">
+			<span id="search">
+				<form action="/search/">
+					<input type="text" class="search-input" placeholder="search something">
+					<input type="submit" class="search-btn" value="">
+				</form> 	
+			</span>
+			<span class="log">
+				<span><a href="/login/" target="_blank">登录</a></span>
+				<span><a href="/regist/" target="_blank">注册</a></span>
+			</span>
+		</div>
+	</nav>
+	<div class="banner">
+		<img src="img/banner.jpg">
+	</div>
+	<div class="web-size web-content">
+		<div class="notes">
+			<div class="news">
+				<div class="title">今日快讯</div>
+				{% for news in news_list %}
+				<div class="newsSpan">
+					<div class="news-content">
+						<h3><a class="news-title" href="{{ news.detail_url}}" target="_blank" >{{ news.title }}</a></h3>
+						<p class="news-text">{{news.intro}} </p>
+					</div>
+					<img src="{{news.img_url}}">
+				</div>
+				{% endfor %}
+			</div>
+			<div class="rotate">
+				<img src="img/mid.jpg" style="width:99%;height:300px;">
+				<img src="img/postl.png" style="width:49%;height:150px;">
+				<img src="img/postr.png" style="width:49%;height:150px">
+			</div>
+			<div class="activity">
+				<div class="title">最新活动</div>
+				{% for activity in activity_list %}
+				<div class="newsSpan">
+					<div class="news-content">
+						<h3><a class="news-title" href="{{ activity.detail_url }}" target="_blank" >{{activity.name}}</a></h3>
+						<p class="news-text"> {{ activity.intro }}</p>
+					</div>
+					<img src="{{activity.img_url}}">
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="discrib">
+			<h3>社团介绍</h3>
+			<div class="org">
+				<div class="tab">
+			    	<a href="javascript:;" class="on" id="tab_1" target="_blank">电脑110</a>
+			        <a href="javascript:;" id="tab_2" target="_blank">微软俱乐部</a>
+			        <a href="javascript:;" id="tab_3" target="_blank">宝洁精英</a>
+			        <a href="javascript:;" id="tab_4" target="_blank">清影PT</a>
+			    </div>
+			    <div class="content">
+			    	<ul>
+			        	<li style="display:block;" id="dis_1">
+			        		<div class="org-img"><a href="org.html" target="_blank"><img src="img/dn110.jpg" class="org-logo"></a></div>
+			        		<div class="org-img"><img src="img/post1.jpg" style="width:90%"></div>
+			        		<div class="org-img"><img src="img/post1.jpg" style="width:90%"></div>
+			        		<div class="org-img" style="width:23%"><img src="img/post1.jpg" style="width:90%"></div>
+			        	</li>
+			            <li id="dis_2">
+			        		<div class="org-img"><img src="img/ms.jpg" class="org-logo"></div>
+			        		<div class="org-img"><img src="img/post2.jpg" style="width:90%"></div>
+			        		<div class="org-img"><img src="img/post2.jpg" style="width:90%"></div>
+			        		<div class="org-img" style="width:23%"><img src="img/post2.jpg" style="width:90%"></div>
+			        	</li>
+			            <li id="dis_3">
+			        		<div class="org-img"><img src="img/bj.jpg" class="org-logo"></div>
+			        		<div class="org-img"><img src="img/post3.jpg" style="width:90%"></div>
+			        		<div class="org-img"><img src="img/post3.jpg" style="width:90%"></div>
+			        		<div class="org-img" style="width:23%"><img src="img/post3.jpg" style="width:90%"></div>
+			        	</li>
+			            <li id="dis_4">
+			        		<div class="org-img"><img src="img/pt.jpg" class="org-logo"></div>
+			        		<div class="org-img"><img src="img/post4.jpg" style="width:90%"></div>
+			        		<div class="org-img"><img src="img/post4.jpg" style="width:90%"></div>
+			        		<div class="org-img" style="width:23%"><img src="img/post4.jpg" style="width:90%"></div>
+			        	</li>
+			        </ul>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<footer>
+			<p>copyright@hitorg</p>
+	</footer>
+	<script src="js/eventUtil.js"></script>
+	<script src="js/org.js"></script>
+</body>
+</html>
