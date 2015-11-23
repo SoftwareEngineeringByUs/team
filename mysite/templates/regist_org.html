@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--指定字符的meta标签必须是head的第一个直接子元素-->
+	<meta charset="utf-8">
+	<!--启用IE Edge模式-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+	<title>社团通</title>
+	<link rel="stylesheet" href="css/style.css">
+	<style type="text/css">
+		#org-form {
+			width: 500px;
+			height: 600px;
+			margin: 10px auto;
+		}
+		.data-input {
+			width: 400px;
+			height: 40px;
+			border: 1px solid #ccc;
+			border-radius: 2px;
+			outline: none;
+		}
+		textarea {
+			width: 400px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<a><h1 class="web-size">logo</h1></a>
+	<h2 style="width: 200px;margin:10px auto;">建立一个社团</h2>
+	<form id="org-form" action="registOrg">
+		<p>社团名：</p>
+		<input type="text" class="data-input">
+		<p>社团类型：</p>
+		<select class="data-input">
+			<option>学校官方</option>
+			<option>学院型</option>
+			<option>益智娱乐</option>
+			<option>体育爱好者</option>
+			<option>科技脑残粉</option>
+			<option>文艺小清新</option>
+		</select>
+		<p>负责人：</p>
+		<input type="text" class="data-input">
+		<p>负责人手机号：</p>
+		<input type="text" class="data-input">
+		<p>社团介绍：</p>
+		<textarea></textarea>
+		<p>社团logo:<input type="file" style="margin-left:30px;"></p>
+		<input type="submit" value="提交申请" class="data-input" style="cursor:pointer">
+	</form>
+</body>
+</html>
