@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--指定字符的meta标签必须是head的第一个直接子元素-->
+	<meta charset="utf-8">
+	<!--启用IE Edge模式-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+	<title>社团广场</title>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+	    h1 {
+	    	float: left;
+	    	width: 200px;
+	    }
+	    nav {
+	    	height: 60px;
+	    }
+		.nav {
+			display: inline-block;
+			padding-left: 0;
+		}
+		.nav li {
+			list-style-type: none;
+			display: inline-block;
+			width: 100px;
+			line-height: 30px;
+		}
+		.create-org button {
+			width: 300px;
+			height: 35px;
+			border: 1px solid #e6e6e6;
+			border-radius: 5px;
+			outline: none;
+			float: right;
+			margin-right: 100px;
+		}
+		.type-list {
+			margin: 20px auto;
+		}
+		.type_name {
+			font-weight: bold;
+			padding-bottom: 10px;
+			font-size: 20px;
+			border-bottom: 1px solid #ccc;
+		}
+		.org_intro {
+			box-sizing: border-box;
+			width: 24%;
+			padding: 18px 0;
+			display: inline-block;
+			border-bottom: 1px solid #f3f3f3;
+		}
+		.org_intro img {
+			width: 30px;
+			height: 30px;
+			float: left;
+		}
+		.org_intro a {
+			font-size: 14px;
+			line-height: 30px;
+			padding-left: 10px;
+			color: #014cd2;
+			font-weight: bold;
+		}
+		footer {
+			width: 100%;
+			height: 50px;
+			background-color: #e6e6e6;
+			position: absolute;
+			bottom: 0;
+		}
+		footer a {
+			margin-left: 10px;
+			font-size: 10px;
+			color: #666;
+		}
+	</style>
+</head>
+<body>
+	<nav class="web-size">
+		<h1>logo</h1>
+		<div id="search">
+			<form action="/search/">
+				<input type="text" class="search-input" placeholder="search something">
+				<input type="submit" class="search-btn" value="">
+			</form> 	
+		</div>
+	</nav>
+	<hr style="margin-bottom:20px;">
+	<div class="create-org">
+		<button>我也要创建一个社团</button>
+	</div>
+	{% for orgType in orgType_list%}
+	<div class="web-size type-list">
+		<div class="type_name">{{ orgType }}</div>
+		{% for org in org_list %}
+		<div class="org_intro">
+			<a href="/{{org.name}}" target="_blank"><img src="{{org.icon_url}}"></a>
+			<span><a href="/{{org.name}}" target="_blank">{{org.name}}</a></span>
+		</div>
+		{% endfor %}	
+	</div>
+	{%endfor%}
+	<footer>
+		@ 2015 hitorg
+		<a href="#">使用hitorg前必读</a>
+	</footer>
+</body>
+</html>

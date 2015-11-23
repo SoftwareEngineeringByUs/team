@@ -8,15 +8,14 @@
 	<title>社团通</title>
 	<link rel="stylesheet" href="css/style.css">
 	<style>
-	    h1 {
-	    	float: left;
-	    	width: 200px;
-	    }
-	    nav {
-	    	height: 80px;
+	    .banner {
+	    	position: relative;
 	    }
 		.nav {
-			display: inline-block;
+			position: absolute;
+			top: 3px;
+			left: 100px;
+			z-index: 10;
 			padding-left: 0;
 		}
 		.nav li {
@@ -25,76 +24,7 @@
 			width: 100px;
 			line-height: 30px;
 		}
-		.nav a {
-			text-decoration: none;
-			color: #7FFF00;
-			font-family: SimSun Serif sans-serif;
-			font-size: 20px;
-		}
-		.right-nav {
-			width: 35%;
-			float:right;
-			margin-top:15px;
-		}
-		#search {
-			box-sizing: border-box;
-			width: 78%;
-			display: inline-block;
-			background: none;
-		}
-		.search-input {
-			box-sizing: border-box;
-			width: 80%;
-			height: 35px;
-			border: 2px solid #e6e6e6;
-			outline: none;
-			border-radius: 30px;
-			background: none;
-			padding: 2px;
-			padding-right: 35px;
-			overflow: hidden;
-		}
-		.search-input:focus{
-			border: 2px solid #d6e0e1;
-			border-radius: 30px;
-		}
-		.search-btn {
-			box-sizing: border-box;
-			width: 30px;
-			height:30px;
-			position: relative;
-			left: -40px;
-			cursor: pointer;
-			border: none;
-			background-image: url("img/search.png"); 
-			background-repeat: no-repeat;
-			background-position: center;
-		}
-		@media screen and (-webkit-min-device-pixel-ratio:0){
-			.search-btn {
-				box-sizing: border-box;
-				width: 30px;
-				height:30px;
-				position: relative;
-				left: -40px;
-				top: 10px;
-				cursor: pointer;
-				border: none;
-				background-image: url("img/search.png"); 
-				background-repeat: no-repeat;
-				background-position: center;
-			} 
-		} 
-		.log {
-			box-sizing: border-box;
-			display: inline-block;
-			width: 19%;
-			font-size: 14px;
-		}
-		.log a {
-			text-decoration: none;
-			color: #000;
-		}
+		
 		.web-content {
 			position: relative;
 			top: -40px;
@@ -104,6 +34,7 @@
 		.banner img {
 			width: 100%;
 			height: 350px;
+			z-index: 1;
 		}
 		.notes {
 			width: 100%;
@@ -154,31 +85,97 @@
 	    	display: inline-block;
 	    	overflow: hidden;
 	    }
+	    .index-icon {
+	    	width: 200px;
+	    	height: 60px;
+	    	background-color: #e5e5e5; 
+	    	position: absolute;
+	    	top: -2px;
+	    	left:50%;
+	    	margin-left: -100px;
+	    	border: 1px solid #e5e5e5;
+	    	border-radius: 2px;
+	    	outline: none;
+	    }
+	    .index-icon img {
+	    	width: 190px;
+	    	height: 58px;
+	    	margin-left:4px;
+	    }
+	    #loginbox {
+	    	width: 80px;
+	    	height: 30px;
+	    	position: absolute;
+	    	top: 10px;
+	    	right: 5%;
+	    	line-height: 30px;
+	    	border: 1px solid #ccc;
+	    	border-radius: 3px;
+	    	outline: none;
+	    	cursor: pointer;
+	    }
+	    #loginbox span {
+	    	margin-right: 10px;
+	    }
+	    #loginbox img {
+	    	position: absolute;
+	    	right: 0;
+	    	width: 30px;
+	    	height: 30px;
+	    	border: 1px solid #ccc;
+	    }
+	    #login-form {
+	    	position: absolute;
+	    	top: 40px;
+	    	right: 5%;
+	    	width: 300px;
+	    	height: 250px;
+	    	background-color: #e6e6e6;
+	    	display: none;
+	    }
+	    .login-input {
+	    	margin: 20px 0;
+	    	text-align: center;
+	    }
+	    .login-input input {
+	    	width:200px;
+	    	height:40px;
+	    	border: 1px solid #ccc;
+	    	border-radius: 3px;
+	    	outline: none;
+	    }
 	</style>
 </head>
 <body>
-	<nav class="web-size">
-		<h1>logo</h1>
+	<div id="search" class="web-size">
+		<form action="/search/">
+			<input type="text" class="search-input" placeholder="search something">
+			<input type="submit" class="search-btn" value="">
+		</form> 	
+	</div>
+	<div class="banner">
 		<ul class="nav">
-			<li><a href="#" target="_blank">社团广场</a></li>
+			<li><a href="org_type.html" target="_blank">社团广场</a></li>
 			<li><a href="#" target="_blank">最近活动</a></li>
 			<li><a href="#" target="_blank">实时新闻</a></li>
 			<li><a href="#" target="_blank">我的日历</a></li>
 		</ul>
-		<div class="right-nav">
-			<span id="search">
-				<form action="/search/">
-					<input type="text" class="search-input" placeholder="search something">
-					<input type="submit" class="search-btn" value="">
-				</form> 	
-			</span>
-			<span class="log">
-				<span><a href="#">登录</a></span>
-				<span><a href="#">注册</a></span>
-			</span>
+		<div class="index-icon">
+			<img src="img/logo3.jpg">
 		</div>
-	</nav>
-	<div class="banner">
+		<div id="loginbox"><span>请登录</span><img src="img/login.png"></div>
+		<div id="login-form">
+			<div class="login-input">
+				学号：<input type="text">
+			</div>
+			<div class="login-input">
+				密码：<input type="text">
+			</div>
+			<div class="login-input">
+				<input type="submit" value="登录" style="cursor:pointer;">
+			</div>
+			<p><a href="register.html" target="_blank">没有账号？点击注册</a></p>
+		</div>
 		<img src="img/banner.jpg">
 	</div>
 	<div class="web-size web-content">
