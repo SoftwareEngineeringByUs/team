@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--指定字符的meta标签必须是head的第一个直接子元素-->
+	<meta charset="utf-8">
+	<!--启用IE Edge模式-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+	<title>社团通</title>
+	<link rel="stylesheet" href="css/style.css">
+	<style type="text/css">
+		h1 {
+	    	float: left;
+	    	width: 10%;
+	    }
+		/*轮播图start*/
+		.slider{
+		    position:relative;
+		    margin:40px auto 0 auto;
+		    width:1002px;
+		    height:350px;
+		    overflow:hidden;
+		    border-radius:5px;
+		}
+		.slider .imgbox{
+		    width:3750px;
+		    height:310px;
+		    position:absolute;
+		    left:5px;
+		    top:4px;
+		}
+		.slider .imgbox img{
+		    float:left;
+		    width:750px;
+		    height:310px;
+		}
+		.slider .png{
+		    width:1002px;
+		    height:350px;
+		    left:0px;
+		    top:0px;
+		    position:absolute;
+		    background:url(img/slider_bg.png);
+		    _background:none;
+		    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="img/slider_bg.png");
+		}
+		.slider .lbtn{
+		    cursor:pointer;
+		    width:45px;
+		    height:55px;
+		    position:absolute;
+		    left:0px;
+		    bottom:-3px;
+		    background:url(img/slider_l_btn.png);
+		    _background:none;
+		    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="img/slider_l_btn.png");
+		}
+		.slider .rbtn{
+		    cursor:pointer;
+		    width:45px;
+		    height:55px;
+		    position:absolute;
+		    left:718px;
+		    bottom:-3px;background:url(img/slider_r_btn.png);
+		    _background:none;
+		    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="img/slider_r_btn.png");
+		}
+		.slider .btnbox{
+		    width:750px;
+		    height:60px;
+		    position:absolute;
+		    left:30px;
+		    bottom:0px;
+		}
+		.slider .btnbox a{
+		    cursor:pointer;
+		    display:inline-block;
+		    float:left;
+		    width:126px;
+		    height:54px;
+		    margin:0 0 0 10px;
+		}
+		.slider .btnbox a img{
+		    position:relative;
+		    display:inline;
+		    width:120px;
+		    height:48px;
+		    float:left;
+		    border:3px solid #392101;
+		    border-radius:2px;
+		}
+		.slider .btnbox a .img_hover{
+		    border:3px solid #e4471f;
+		    border-radius:2px;
+		}
+		.slider .slider_p{
+		    overflow:hidden;
+		    width:220px;
+		    height:290px;
+		    position:absolute;
+		    right:15px;
+		    top:15px;
+		}
+		.slider .slider_p h3{
+		    margin:20px 0 10px 0;
+		    font-size:20px;
+		    text-align:center;
+		    color:#faa629;
+		}
+		.slider .slider_p p{
+		    line-height:26px;
+		    font-size:14px;
+		    color:#faa629;
+		}
+		.hi_btn{
+		    width:740px;
+		    height:330px;
+		    position:absolute;
+		    left:0px;
+		    top:0px;
+		    display:block;
+		}
+		/*轮播图end*/
+
+		/*activity start*/
+		.activity_type {
+			font-size: 18px;
+			height: 30px;
+			margin-top: 15px;
+			border-bottom: 1px solid #ccc;
+		}
+		.one_activity {
+			box-sizing: border-box;
+			width: 31%;
+			height: 200px;
+			border: 1px solid #e6e6e6;
+			margin: 10px 5px;
+			display: inline-block;
+		}
+		.one_activity img {
+			width: 130px;
+			height: 200px;
+			float: left;
+		}
+		.activity_content {
+			margin-left: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<nav class="web-size">
+		<h1><a href="index.html">logo</a></h1>
+		<div id="search">
+			<form action="/search/">
+				<input type="text" class="search-input" placeholder="search something">
+				<input type="submit" class="search-btn" value="">
+			</form> 	
+		</div>
+	</nav>
+	<div class="slider">
+    	<div class="imgbox">
+    		{% for slider_img in slider_list%}
+	        <img alt="Danx" src="{{ slider_img }}" width="750" height="310" />
+	        {% endfor %}
+	    </div>
+    	<div class="png"></div>
+	    <a href="#" id="hi_btn0" class="hi_btn"></a>
+	    <a href="#" id="hi_btn1" class="hi_btn"></a>
+	    <a href="#" id="hi_btn2" class="hi_btn"></a>
+	    <a href="#" id="hi_btn3" class="hi_btn"></a>
+	    <a href="#" id="hi_btn4" class="hi_btn"></a>
+	    <div class="btnbox">
+	        <a onmouseover="btn_m_over(0)"><img alt="Danx" id="btn_img0" class="thumb img_hover" src="img/danx1.jpg" /></a>
+	        <a onmouseover="btn_m_over(1)"><img alt="Danx" id="btn_img1" class="thumb" src="img/danx2.jpg" /></a>
+	        <a onmouseover="btn_m_over(2)"><img alt="Danx" id="btn_img2" class="thumb" src="img/danx3.jpg" /></a>
+	        <a onmouseover="btn_m_over(3)"><img alt="Danx" id="btn_img3" class="thumb" src="img/danx4.jpg" /></a>
+	        <a onmouseover="btn_m_over(4)"><img alt="Danx" id="btn_img4" class="thumb" src="img/danx5.jpg" /></a>
+	    </div>
+    	<div class="lbtn"></div>
+    	<div class="rbtn"></div>
+    	<div class="slider_p">
+        	<div id="slider_p0" class="slider_p_div">
+				<h3>标题1</h3>
+				<p>百度（Nasdaq简称：BIDU）是全球最大的中文搜索引擎，2000年1月由李彦宏、徐勇两人创立于北京中关村，致力于向人们提供“简单，可依赖”的信息获取方式。“百度”二字源于中国宋朝词人辛弃疾的《青玉案·元夕》词句“众里寻他千百度”，象征着百度对中文信息检索技术的执著追求。</p>
+	        </div>
+	        <div id="slider_p1" class="slider_p_div">
+				<h3>标题2</h3>
+				<p>2000年1月由李彦宏、徐勇两人创立于北京中关村，致力于向人们提供“简单，可依赖”的信息获取方式。“百度”二字源于中国宋朝词人辛弃疾的《青玉案·元夕》词句“众里寻他千百度”，象征着百度对中文信息检索技术的执著追求。</p>
+	        </div>
+	        <div id="slider_p2" class="slider_p_div">
+				<h3>标题3</h3>
+				<p>致力于向人们提供“简单，可依赖”的信息获取方式。“百度”二字源于中国宋朝词人辛弃疾的《青玉案·元夕》词句“众里寻他千百度”，象征着百度对中文信息检索技术的</p>
+	        </div>
+	        <div id="slider_p3" class="slider_p_div">
+				<h3>标题4</h3>
+				<p>您到卡上黑暗圣经卡萨丁</p>
+	        </div>
+	        <div id="slider_p4" class="slider_p_div">
+				<h3>标题5</h3>
+				<p>打考勤卡和饭来欺骗卡号发</p>
+	        </div>
+    	</div>
+	</div>
+	<div class="activity web-size">
+		{% for activityType in type_list %}
+		<div class="activity_type">{{ activityType}}</div>
+		{% for activity in activity_list %}
+		<div class="one_activity">
+			<a href="{{ activity.detail_url }}" target="_blank"><img src="{{ activity.img_url }}"></a>
+			<div class="activity_content">
+				<a href="{{ activity.detail_url }}" target="_blank"><p class="activity_name">{{ activity.name }}</p></a>
+				<p class="activity_date">{{ activity.date }}</p>
+				<p class="activity_text">{{ activity.intro }}</p>
+			</div>
+		</div>
+		{{ endfor }}
+	  {% endfor %}
+	</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/eventUtil.js"></script>
+<script src="js/org.js"></script>
+</body>
+</html>
