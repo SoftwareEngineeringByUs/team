@@ -1,6 +1,7 @@
 body {
     margin:0;
     padding:0;
+    position: relative
     font-family: helvetica, 微软雅黑, 'microsoft yahei', verdana, lucida, arial, sans-serif, 黑体;
     font-size: 14px;
 }
@@ -8,16 +9,16 @@ body {
     .web-size {
         width: 980px;
         margin: 0 auto;
-        background-color: #fff;
+        /*background-color: #fff;*/
         overflow: hidden;
     }
 }
 
 @media(min-width : 1280px){
     .web-size {
-        width: 1280px;
+        width: 1100px;
         margin: 0 auto;
-        background-color: #fff;
+       /* background-color: #fff;*/
         overflow: hidden;
     }   
 }
@@ -122,26 +123,22 @@ body {
     display: inline-block;
     height: 180px;
 }
-
+/*可能有问题*/
 footer {
     margin-top: 150px;
     margin-bottom:40px;
     font-size:15px;
     text-align:center;
 }
-
+/*end*/
 a {
     text-decoration: none;
-    color: #ccc;
-    font-family: helvetica, 微软雅黑, 'microsoft yahei', verdana, lucida, arial, sans-serif, 黑体;
-    font-size: 16px;
 }
-
 a:hover {
     text-decoration: underline;
     color: lightblue;
 }
-
+/*搜索start*/
 #search {
     box-sizing: border-box;
     width: 60%;
@@ -193,6 +190,8 @@ a:hover {
         background-position: center;
     } 
 } 
+/*搜索end*/
+/*登录start*/
 .log {
     box-sizing: border-box;
     display: inline-block;
@@ -203,3 +202,4 @@ a:hover {
     margin-right: 10px;
     line-height: 60px;
 }
+/*登录end*/

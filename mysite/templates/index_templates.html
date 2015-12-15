@@ -18,6 +18,16 @@
 			z-index: 10;
 			padding-left: 0;
 		}
+		.nav a {
+			font-size: 20px;
+			text-decoration: none;
+			font-weight: bold;
+			color: #fff;
+		}
+		.nav a:hover {
+			text-decoration: underline;
+			color: #00ccff;
+		}
 		.nav li {
 			list-style-type: none;
 			display: inline-block;
@@ -30,6 +40,7 @@
 			top: -40px;
 			border: 2px solid #e6e6e6;
 			padding: 40px 10px;
+			background-color: #fff;
 		}
 		.banner img {
 			width: 100%;
@@ -98,9 +109,8 @@
 	    	outline: none;
 	    }
 	    .index-icon img {
-	    	width: 190px;
+	    	width: 200px;
 	    	height: 58px;
-	    	margin-left:4px;
 	    }
 	    #loginbox {
 	    	width: 80px;
@@ -109,7 +119,7 @@
 	    	top: 10px;
 	    	right: 5%;
 	    	line-height: 30px;
-	    	border: 1px solid #ccc;
+	    	border: 2px solid #00ccff;
 	    	border-radius: 3px;
 	    	outline: none;
 	    	cursor: pointer;
@@ -122,7 +132,7 @@
 	    	right: 0;
 	    	width: 30px;
 	    	height: 30px;
-	    	border: 1px solid #ccc;
+	    	border-left: 1px solid #ccc;
 	    }
 	    #login-form {
 	    	position: absolute;
@@ -161,10 +171,10 @@
 			<li><a href="#" target="_blank">我的日历</a></li>
 		</ul>
 		<div class="index-icon">
-			<img src="img/logo3.jpg">
+			<img src="img/logo-i.jpg">
 		</div>
 		<div id="loginbox"><span>请登录</span><img src="img/login.png"></div>
-		<div id="login-form">
+		<form action="/login/" id="login-form">
 			<div class="login-input">
 				学号：<input type="text">
 			</div>
@@ -175,7 +185,7 @@
 				<input type="submit" value="登录" style="cursor:pointer;">
 			</div>
 			<p><a href="#" target="_blank">没有账号？点击注册</a></p>
-		</div>
+		</form>
 		<img src="img/banner.jpg">
 	</div>
 	<div class="web-size web-content">
